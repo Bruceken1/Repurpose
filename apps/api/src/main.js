@@ -44,6 +44,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/', routes());
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Serve React build in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../../web/dist')));
+  
+  // SPA fallback - must be LAST route before 404
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../web/dist/index.html'));
+  });
+}
 
 app.use(errorMiddleware);
 
