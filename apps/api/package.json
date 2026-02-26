@@ -1,26 +1,19 @@
 {
   "name": "api",
-  "type": "module",
   "version": "0.0.0",
-  "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "node src/main.js",
-    "start": "node src/main.js",
-    "lint": "eslint . --quiet"
+    "start": "node index.js",
+    "dev": "node --watch index.js"
   },
   "dependencies": {
+    "express": "^4.18.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^5.0.1",
-    "helmet": "^8.0.0",
-    "morgan": "^1.10.0",
-    "pocketbase": "^0.25.0",
-    "stripe": "^14.0.0",
-    "axios": "^1.6.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^8.57.0",
-    "eslint": "^8.57.1",
-    "globals": "^15.14.0"
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.0",
+    "stripe": "^13.10.0",
+    "pocketbase": "^0.20.0",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0"
   }
 }
